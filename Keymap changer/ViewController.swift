@@ -26,8 +26,12 @@ class ViewController: UIViewController {
             let text:String = inputField.text!
             var newString = ""
             for char in text {
-                if let fragment = layoutDict[String(char)] {
-                    newString += fragment
+                if let fragment = layoutDict[String(char.lowercased())] {
+                    if String(char) == String(char.lowercased()) {
+                        newString += fragment
+                    } else {
+                        newString += fragment.uppercased()
+                    }
                 } else {
                     newString += String(char)
                 }
